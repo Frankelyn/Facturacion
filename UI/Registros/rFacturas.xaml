@@ -1,0 +1,105 @@
+﻿<Window x:Class="VentasWPF.UI.Registros.rFacturas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VentasWPF.UI.Registros"
+        mc:Ignorable="d"
+        Title="Facturas" Height="530" Width="570" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <Label Content="Facturacion" FontFamily="Comic Sans MS" FontSize="24" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label Content="FacturaId" FontFamily="Comic Sans MS" FontSize="12"/>
+                    <Label Content="Fecha" FontFamily="Comic Sans MS" FontSize="12" Margin="300,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="FacturaIdTextbox" Text="{Binding FacturaId}" Height="25" Width="80"  FontFamily="Comic Sans MS" FontSize="12"/>
+                    <Button x:Name="BuscarButton" Margin="10,0,0,0" Click="BuscarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/search-icon (2).png" Height="25"/>
+                        </StackPanel>
+                    </Button>
+
+                    <DatePicker Name="FechaDatePicker" SelectedDate="{Binding FechaFactura}" Margin="250,0,0,0" SelectedDateFormat="Short" FontFamily="Comic Sans MS"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label Content="Cliente" FontFamily="Comic Sans MS"/>
+                    <TextBox x:Name="NombreClienteTextbox" Text="{Binding NombreCliente}" FontFamily="Comic Sans MS" Width="173"/>
+
+                    <Label Content="Cantidad de Productos" FontFamily="Comic Sans MS"/>
+                    <TextBox x:Name="CantidadTextbox" FontFamily="Comic Sans MS" Width="50"/>
+
+                    <Button x:Name="ImprimirButton"  Width="102" Margin="10,0,0,0" Height="30" Click="ImprimirButton_Click">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="/Resources/print-icon.png" Height="25"/>
+                            <Label Content="Imprimir" FontFamily="Comic Sans MS" FontSize="14"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <DataGrid x:Name="DetalleDatagrid" ItemsSource="{Binding Detalle}" Height="250"  FontFamily="Comic Sans MS" AutoGenerateColumns="False" Margin="0,10,0,0" Width="407">
+                        <!--CellEditEnding="DetalleDatagrid_CellEditEnding"-->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ProductoId" Binding="{Binding Producto.ProductoId}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Producto.Nombre}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Marca" Binding="{Binding Producto.Marca}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Cantidad" Binding="{Binding Unidades}"/>
+                            <DataGridTextColumn Header="Precio" Binding="{Binding Producto.Precio, StringFormat=N2}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Itbis" Binding="{Binding ITBIS, StringFormat=N2}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Total" Binding="{Binding Monto, StringFormat=N2}" IsReadOnly="True"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+                        <Button x:Name="AgregarProductoButton" Click="AgregarProductoButton_Click" Height="40">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Alarm-Plus-icon.png" Height="30"/>
+                                <Label Content="Producto" FontFamily="Comic Sans MS" FontSize="14"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="QuitarProductoButton" Click="QuitarProductoButton_Click" Margin="0,10,0,0" Height="40">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Alarm-Minus-icon.png" Height="30"/>
+                                <Label Content="Producto" FontFamily="Comic Sans MS" FontSize="14"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="NuevoButton" Click="NuevoButton_Click" Margin="0,35,0,0" Width="100" Height="35">
+                            <StackPanel Orientation="Horizontal" Width="97">
+                                <Image Source="/Resources/new-icon.png" Height="30"/>
+                                <Label Content="Nuevo" FontFamily="Comic Sans MS" FontSize="14"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="GuardarButton" Click="GuardarButton_Click" Margin="0,10,0,0" Width="100" Height="35">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/save-icon (1).png" Height="25"/>
+                                <Label Content="Guardar" FontFamily="Comic Sans MS" FontSize="14"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="EliminarButton" Click="EliminarButton_Click" Margin="0,10,0,0" Width="100" Height="35">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Actions-window-close-icon.png" Height="25" />
+                                <Label Content="Eliminar" FontFamily="Comic Sans MS" FontSize="14"/>
+                            </StackPanel>
+                        </Button>
+
+
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Margin="0,10,0,0">
+                    <Label Content="Total:" FontFamily="Comic Sans MS" FontSize="16" Foreground="Red" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <Label x:Name="MontoTotalLabel" Content="{Binding MontoTotal, StringFormat=N2}" FontFamily="Comic Sans MS" FontSize="24" Foreground="BlueViolet"  FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

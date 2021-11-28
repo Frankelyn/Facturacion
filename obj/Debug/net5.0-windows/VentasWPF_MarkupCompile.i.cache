@@ -1,0 +1,20 @@
+﻿VentasWPF
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\frank\OneDrive\Escritorio\UCNE_3-2021\Lenguaje de programacion\tarea de programacion por capas\VentasWPF\obj\Debug\net5.0-windows\
+VentasWPF
+none
+false
+TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+C:\Users\frank\OneDrive\Escritorio\UCNE_3-2021\Lenguaje de programacion\tarea de programacion por capas\VentasWPF\App.xaml
+4-2107136599
+81554338694
+20-74336329
+215503163015
+MainWindow.xaml;UI\Consultas\cProductos.xaml;UI\Registros\rFacturas.xaml;UI\Registros\rProductos.xaml;
+
+False
+

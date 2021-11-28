@@ -1,0 +1,82 @@
+﻿<Window x:Class="VentasWPF.UI.Registros.rProductos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VentasWPF.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Productos" Height="400" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel>
+            <StackPanel>
+                <Label Content="Registro de productos" FontSize="22" HorizontalAlignment="Center" FontFamily="Comic Sans MS" />
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="ProductoId" FontSize="12" FontFamily="Comic Sans MS" Margin="10,0,0,0"/>
+                    <Label Content="Fecha" FontSize="12" FontFamily="Comic Sans MS" Margin="200,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="ProductoIdTextbox" Text="{Binding ProductoId}" Height="24" Width="70" Margin="10,0,0,0"/>
+                    <Button x:Name="BuscarButton" Margin="10,0,0,0" Click="BuscarButton_Click">
+                        <StackPanel>
+                            <Image Source="/Resources/search-icon (2).png" Height="24" Width="30"/>
+                        </StackPanel>
+                    </Button>
+                    <DatePicker x:Name="FechaIngresoDatePicker" SelectedDate="{Binding FechaIngreso}" SelectedDateFormat="Short" Margin="160,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label Content="Nombre" FontSize="12" FontFamily="Comic Sans MS" Margin="10,0,0,0"/>
+                    <Label Content="Marca" FontSize="12" FontFamily="Comic Sans MS" Margin="220,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="NombreTextbox" Text="{Binding Nombre}" Height="24" Width="144" Margin="10,0,0,0"/>
+                    <TextBox x:Name="MarcaTextbox" Text="{Binding Marca}" Height="24" Width="144" Margin="132,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label Content="Costo" FontSize="12" FontFamily="Comic Sans MS" Margin="10,0,0,0"/>
+                    <Label Content="Precio" FontSize="12" FontFamily="Comic Sans MS" Margin="235,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="CostoTextbox" Text="{Binding Costo, StringFormat=N2}" Height="24" Width="144" Margin="10,0,0,0"/>
+                    <TextBox x:Name="PrecioTextbox" Text="{Binding Precio, StringFormat=N2}" Height="24" Width="144" Margin="132,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical"  Margin="0,10,0,0">
+                    <Label Content="Cantidad" FontSize="12" FontFamily="Comic Sans MS" Margin="10,0,0,0"/>
+                    <TextBox x:Name="CantidadTextbox" Text="{Binding Cantidad}" Height="24" Width="144" Margin="10,0,0,0" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </StackPanel>
+
+            <GroupBox Header="Aciones" Width="318" Height="61" Margin="0,10,0,0" FontSize="12" FontFamily="Comic Sans MS">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center">
+                    <Button x:Name="NuevoButton" Width="80" Click="NuevoButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/new-icon.png" Height="22"/>
+                            <Label Content="Nuevo" FontFamily="Comic Sans MS" FontSize="12"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="GuardarButton" Width="80" Click="GuardarButton_Click" Margin="10,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/save-icon (1).png" Height="22"/>
+                            <Label Content="Guardar" FontFamily="Comic Sans MS" FontSize="12"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="EliminarButton" Width="80" Click="EliminarButton_Click" Margin="10,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Actions-window-close-icon.png" Height="22"/>
+                            <Label Content="Eliminar" FontFamily="Comic Sans MS" FontSize="12"/>
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+            </GroupBox>
+
+        </StackPanel>
+    </Grid>
+</Window>
